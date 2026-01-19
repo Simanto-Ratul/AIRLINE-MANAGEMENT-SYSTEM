@@ -66,6 +66,7 @@ public class HomePage extends JFrame {
         passporTextField = new JTextField();
         passporTextField.setBounds(200, 160, 350, 35);
         passporTextField.setFont(font2);
+        passporTextField.setForeground(Color.BLACK);
         passporTextField.setHorizontalAlignment(JTextField.CENTER);
         c.add(passporTextField);
 
@@ -78,6 +79,7 @@ public class HomePage extends JFrame {
         numberTextField = new JTextField();
         numberTextField.setBounds(200, 220, 350, 35);
         numberTextField.setFont(font2);
+        numberTextField.setForeground(Color.BLACK);
         numberTextField.setHorizontalAlignment(JTextField.CENTER);
         c.add(numberTextField);
 
@@ -90,6 +92,7 @@ public class HomePage extends JFrame {
         nationalityJTextField = new JTextField();
         nationalityJTextField.setBounds(200, 280, 350, 35);
         nationalityJTextField.setFont(font2);
+        nationalityJTextField.setForeground(Color.BLACK);
         nationalityJTextField.setHorizontalAlignment(JTextField.CENTER);
         c.add(nationalityJTextField);
 
@@ -155,8 +158,9 @@ public class HomePage extends JFrame {
 
         departurTextField = new JTextField();
         departurTextField.setBounds(230, 520, 320, 35);
-        departurTextField.setToolTipText("DD--MM--YY");
+        departurTextField.setToolTipText("DD/MM/YY");
         departurTextField.setFont(font2);
+        departurTextField.setForeground(Color.BLACK);
         departurTextField.setHorizontalAlignment(JTextField.CENTER);
         c.add(departurTextField);
 
