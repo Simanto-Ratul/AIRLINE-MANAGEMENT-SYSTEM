@@ -224,7 +224,7 @@ public class HomePage extends JFrame {
                 String name = nameTextField.getText();
                 String passport = passporTextField.getText();
                 String number = numberTextField.getText();
-                String nationality = nationalityJTextField.getText(); // Fixed: was using nameTextField
+                String nationality = nationalityJTextField.getText();
                 String departureDate = departurTextField.getText();
 
                 String gender = "";
