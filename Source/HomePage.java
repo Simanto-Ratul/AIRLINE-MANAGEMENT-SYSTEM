@@ -169,6 +169,7 @@ public class HomePage extends JFrame {
         ticketComboBox = new JComboBox<>(tickets);
         ticketComboBox.setBounds(200, 580, 100, 35);
         ticketComboBox.setFont(font2);
+        ticketComboBox.setToolTipText("Per Ticket Price 3000 BDT");
         c.add(ticketComboBox);
 
         tripTypJLabel = new JLabel("Trip Type : ");
@@ -236,6 +237,10 @@ public class HomePage extends JFrame {
 
                 String numTickets = (String) ticketComboBox.getSelectedItem();
 
+                int numberOfTickets = Integer.parseInt(numTickets);
+                int ticketPrice = 3000;
+                double totalPrice = numberOfTickets * ticketPrice;
+
                 String tripType = "";
                 if (oneWayTripButton.isSelected()) {
                     tripType = "One Way";
@@ -245,7 +250,7 @@ public class HomePage extends JFrame {
                     tripType = "Multi City";
                 }
 
-                JOptionPane.showMessageDialog(null, "SUBMITTED SUCCESSFULLY!!");
+                JOptionPane.showMessageDialog(null, "Submitted Successfully!");
 
                 String details = "CUSTOMER DETAILS\n" +
                         "================\n" +
@@ -258,6 +263,7 @@ public class HomePage extends JFrame {
                         "Flying To: " + flyingTo + "\n" +
                         "Departure Date: " + departureDate + "\n" +
                         "Number of Tickets: " + numTickets + "\n" +
+                        "Ticket Price: " + totalPrice + "\n" +
                         "Trip Type: " + tripType + "\n" +
                         "================\n" +
                         "Thank you for choosing Biman Bangladesh Airlines!";
