@@ -4,22 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class HomePage extends JFrame{
+public class HomePage extends JFrame {
     private Container c;
     private Color color1;
-    private Font font1, font2, font3;
-    private JLabel headingLabel, nameLabel, passportJLabel, numberJLabel, nationalityJLabel, genderJLabel, flyingToJLabel, flyingFromJLabel, departureLabel, ticketJLabel, tripTypJLabel;
+    private Font font1, font2, font3, font4;;
+    private JLabel headingLabel, nameLabel, passportJLabel, numberJLabel, nationalityJLabel, genderJLabel,
+            flyingToJLabel, flyingFromJLabel, departureLabel, ticketJLabel, tripTypJLabel;
     private JTextField nameTextField, passporTextField, numberTextField, nationalityJTextField, departurTextField;
     private JRadioButton maleButton, femaleButton, othersButton, oneWayTripButton, roundTripButton, multiCityTripButton;
     private ButtonGroup group1, group2;
-    private JComboBox<String> flyingFrComboBox,flyingToComboBox, ticketComboBox;
-    private String[] places = {" ","DHAKA", "CHITTAGONG", "SYLHET", "JESSORE", "COX'S BAZAR"};
-    private String[] tickets = {"1","2","3","4","5","6","7","8","9","10",};
+    private JComboBox<String> flyingFrComboBox, flyingToComboBox, ticketComboBox;
+    private String[] places = { " ", "DHAKA", "CHITTAGONG", "SYLHET", "JESSORE", "COX'S BAZAR" };
+    private String[] tickets = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", };
     private JButton submiButton;
     private JTextArea textArea1;
     private Cursor cursor;
 
-    public HomePage(){
+    public HomePage() {
         this.setTitle("AIRLINE MANAGEMENT SYSTEM");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -30,13 +31,14 @@ public class HomePage extends JFrame{
         font1 = new Font("Cambria", Font.BOLD + Font.ITALIC, 38);
         font2 = new Font("Cambria", Font.PLAIN, 18);
         font3 = new Font("Cambria", Font.BOLD, 20);
+        font4 = new Font("Courier New", Font.PLAIN, 16);
 
         c = this.getContentPane();
         c.setLayout(null);
         c.setBackground(color1);
 
         headingLabel = new JLabel("WELCOME TO BIMAN BANGLADESH AIRLINES");
-        headingLabel.setBounds(250,20,900,50);
+        headingLabel.setBounds(250, 20, 900, 50);
         headingLabel.setFont(font1);
         headingLabel.setForeground(Color.WHITE);
         headingLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -51,6 +53,7 @@ public class HomePage extends JFrame{
         nameTextField = new JTextField();
         nameTextField.setBounds(200, 100, 350, 35);
         nameTextField.setFont(font2);
+        nameTextField.setForeground(Color.BLACK);
         nameTextField.setHorizontalAlignment(JTextField.CENTER);
         c.add(nameTextField);
 
@@ -200,24 +203,67 @@ public class HomePage extends JFrame{
         group2.add(roundTripButton);
         group2.add(multiCityTripButton);
 
+        textArea1 = new JTextArea();
+        textArea1.setBounds(750, 250, 700, 650);
+        textArea1.setFont(font4);
+        textArea1.setBackground(color1);
+        textArea1.setForeground(Color.WHITE);
+        c.add(textArea1);
+
         submiButton = new JButton("SUBMIT");
         submiButton.setBounds(250, 700, 200, 45);
         submiButton.setFont(font3);
         submiButton.setCursor(cursor);
         submiButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae){
-                // String name = nameTextField.getText();
-                // String passport = passporTextField.getText();
-                // String number = numberTextField.getText();
-                // String nationality = nameTextField.getText();
+            public void actionPerformed(ActionEvent ae) {
+                String name = nameTextField.getText();
+                String passport = passporTextField.getText();
+                String number = numberTextField.getText();
+                String nationality = nationalityJTextField.getText(); // Fixed: was using nameTextField
+                String departureDate = departurTextField.getText();
+
+                String gender = "";
+                if (maleButton.isSelected()) {
+                    gender = "Male";
+                } else if (femaleButton.isSelected()) {
+                    gender = "Female";
+                } else if (othersButton.isSelected()) {
+                    gender = "Others";
+                }
+
+                String flyingFrom = (String) flyingFrComboBox.getSelectedItem();
+                String flyingTo = (String) flyingToComboBox.getSelectedItem();
+
+                String numTickets = (String) ticketComboBox.getSelectedItem();
+
+                String tripType = "";
+                if (oneWayTripButton.isSelected()) {
+                    tripType = "One Way";
+                } else if (roundTripButton.isSelected()) {
+                    tripType = "Round Trip";
+                } else if (multiCityTripButton.isSelected()) {
+                    tripType = "Multi City";
+                }
+
+                JOptionPane.showMessageDialog(null, "SUBMITTED SUCCESSFULLY!!");
+
+                String details = "CUSTOMER DETAILS\n" +
+                        "================\n" +
+                        "Name: " + name + "\n" +
+                        "Passport No.: " + passport + "\n" +
+                        "Mobile No.: " + number + "\n" +
+                        "Nationality: " + nationality + "\n" +
+                        "Gender: " + gender + "\n" +
+                        "Flying From: " + flyingFrom + "\n" +
+                        "Flying To: " + flyingTo + "\n" +
+                        "Departure Date: " + departureDate + "\n" +
+                        "Number of Tickets: " + numTickets + "\n" +
+                        "Trip Type: " + tripType + "\n" +
+                        "================\n" +
+                        "Thank you for choosing Biman Bangladesh Airlines!";
+                textArea1.setText(details);
             }
         });
         c.add(submiButton);
-
-        textArea1 = new JTextArea();
-        textArea1.setBounds(650, 100, 700, 650);
-        textArea1.setFont(font2);
-        textArea1.setBackground(color1);
-        c.add(textArea1);
     }
 }
