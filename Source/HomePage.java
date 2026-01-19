@@ -14,9 +14,9 @@ public class HomePage extends JFrame {
     private JRadioButton maleButton, femaleButton, othersButton, oneWayTripButton, roundTripButton, multiCityTripButton;
     private ButtonGroup group1, group2;
     private JComboBox<String> flyingFrComboBox, flyingToComboBox, ticketComboBox;
-    private String[] places = { " ", "DHAKA", "CHITTAGONG", "SYLHET", "JESSORE", "COX'S BAZAR" };
+    private String[] places = { " ", "DHAKA", "CHITTAGONG", "SYLHET", "JESSORE", "COX'S BAZAR", "RAJSHAHI", "BARISAL" };
     private String[] tickets = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", };
-    private JButton submiButton;
+    private JButton submitButton;
     private JTextArea textArea1;
     private Cursor cursor;
 
@@ -210,11 +210,11 @@ public class HomePage extends JFrame {
         textArea1.setForeground(Color.WHITE);
         c.add(textArea1);
 
-        submiButton = new JButton("SUBMIT");
-        submiButton.setBounds(250, 700, 200, 45);
-        submiButton.setFont(font3);
-        submiButton.setCursor(cursor);
-        submiButton.addActionListener(new ActionListener() {
+        submitButton = new JButton("SUBMIT");
+        submitButton.setBounds(250, 700, 200, 45);
+        submitButton.setFont(font3);
+        submitButton.setCursor(cursor);
+        submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 String name = nameTextField.getText();
                 String passport = passporTextField.getText();
@@ -264,6 +264,6 @@ public class HomePage extends JFrame {
                 textArea1.setText(details);
             }
         });
-        c.add(submiButton);
+        c.add(submitButton);
     }
 }
