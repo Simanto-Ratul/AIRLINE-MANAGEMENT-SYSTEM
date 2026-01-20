@@ -53,3 +53,31 @@ Number of Tickets: 3
 Total Price: 9000.0 BDT
 Trip Type: One Way
 
+Passenger Details
+-------------------
+Name: Prottyoy Roy
+Passport No.: 4553234
+Mobile No.: 0177443225
+Nationality: Nepal
+Gender: Male
+Flying From: DHAKA
+Flying To: RAJSHAHI
+Departure Date: 03/05/25
+Number of Tickets: 1
+Total Price: 3000.0 BDT
+Trip Type: Round Trip
+
+Passenger Details
+-------------------
+Name: 
+Passport No.: 
+Mobile No.: 
+Nationality: 
+Gender: 
+Flying From:  
+Flying To:  
+Departure Date: 
+Number of Tickets: 1
+Total Price: 3000.0 BDT
+Trip Type: 
+
