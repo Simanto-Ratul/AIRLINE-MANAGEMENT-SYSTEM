@@ -81,3 +81,17 @@ Number of Tickets: 1
 Total Price: 3000.0 BDT
 Trip Type: 
 
+Passenger Details
+-------------------
+Name: Simanto
+Passport No.: 5524424
+Mobile No.: 78763563
+Nationality: Bangladeshi
+Gender: Male
+Flying From: DHAKA
+Flying To: JESSORE
+Departure Date: 05/12/15
+Number of Tickets: 3
+Total Price: 9000.0 BDT
+Trip Type: One Way
+
