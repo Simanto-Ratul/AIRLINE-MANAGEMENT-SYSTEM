@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class HomePage extends JFrame {
+public class HomePage extends JFrame implements ActionListener {
     private Container c;
     private Color color1;
     private Font font1, font2, font3, font4;;
@@ -219,61 +219,61 @@ public class HomePage extends JFrame {
         submitButton.setBounds(250, 700, 200, 45);
         submitButton.setFont(font3);
         submitButton.setCursor(cursor);
-        submitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                String name = nameTextField.getText();
-                String passport = passporTextField.getText();
-                String number = numberTextField.getText();
-                String nationality = nationalityJTextField.getText();
-                String departureDate = departurTextField.getText();
-
-                String gender = "";
-                if (maleButton.isSelected()) {
-                    gender = "Male";
-                } else if (femaleButton.isSelected()) {
-                    gender = "Female";
-                } else if (othersButton.isSelected()) {
-                    gender = "Others";
-                }
-
-                String flyingFrom = (String) flyingFrComboBox.getSelectedItem();
-                String flyingTo = (String) flyingToComboBox.getSelectedItem();
-
-                String numTickets = (String) ticketComboBox.getSelectedItem();
-
-                int numberOfTickets = Integer.parseInt(numTickets);
-                int ticketPrice = 3000;
-                double totalPrice = numberOfTickets * ticketPrice;
-
-                String tripType = "";
-                if (oneWayTripButton.isSelected()) {
-                    tripType = "One Way";
-                } else if (roundTripButton.isSelected()) {
-                    tripType = "Round Trip";
-                } else if (multiCityTripButton.isSelected()) {
-                    tripType = "Multi City";
-                }
-
-                JOptionPane.showMessageDialog(null, "Submitted Successfully!");
-
-                String details = "CUSTOMER DETAILS\n" +
-                        "================\n" +
-                        "Name: " + name + "\n" +
-                        "Passport No.: " + passport + "\n" +
-                        "Mobile No.: " + number + "\n" +
-                        "Nationality: " + nationality + "\n" +
-                        "Gender: " + gender + "\n" +
-                        "Flying From: " + flyingFrom + "\n" +
-                        "Flying To: " + flyingTo + "\n" +
-                        "Departure Date: " + departureDate + "\n" +
-                        "Number of Tickets: " + numTickets + "\n" +
-                        "Ticket Price: " + totalPrice + "\n" +
-                        "Trip Type: " + tripType + "\n" +
-                        "================\n" +
-                        "Thank you for choosing Biman Bangladesh Airlines!";
-                textArea1.setText(details);
-            }
-        });
+        submitButton.addActionListener(this);
         c.add(submitButton);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        String name = nameTextField.getText();
+        String passport = passporTextField.getText();
+        String number = numberTextField.getText();
+        String nationality = nationalityJTextField.getText();
+        String departureDate = departurTextField.getText();
+
+        String gender = "";
+        if (maleButton.isSelected()) {
+            gender = "Male";
+        } else if (femaleButton.isSelected()) {
+            gender = "Female";
+        } else if (othersButton.isSelected()) {
+            gender = "Others";
+        }
+
+        String flyingFrom = (String) flyingFrComboBox.getSelectedItem();
+        String flyingTo = (String) flyingToComboBox.getSelectedItem();
+
+        String numTickets = (String) ticketComboBox.getSelectedItem();
+
+        int numberOfTickets = Integer.parseInt(numTickets);
+        TicketPrice priceCalculator = new TicketPriceCalculator();
+        double totalPrice = priceCalculator.calculateTotalPrice(numberOfTickets);
+
+        String tripType = "";
+        if (oneWayTripButton.isSelected()) {
+            tripType = "One Way";
+        } else if (roundTripButton.isSelected()) {
+            tripType = "Round Trip";
+        } else if (multiCityTripButton.isSelected()) {
+            tripType = "Multi City";
+        }
+
+        JOptionPane.showMessageDialog(null, "Submitted Successfully!");
+
+        String details = "CUSTOMER DETAILS\n" +
+                "================\n" +
+                "Name: " + name + "\n" +
+                "Passport No.: " + passport + "\n" +
+                "Mobile No.: " + number + "\n" +
+                "Nationality: " + nationality + "\n" +
+                "Gender: " + gender + "\n" +
+                "Flying From: " + flyingFrom + "\n" +
+                "Flying To: " + flyingTo + "\n" +
+                "Departure Date: " + departureDate + "\n" +
+                "Number of Tickets: " + numTickets + "\n" +
+                "Ticket Price: " + totalPrice + "\n" +
+                "Trip Type: " + tripType + "\n" +
+                "================\n" +
+                "Thank you for choosing Biman Bangladesh Airlines!";
+        textArea1.setText(details);
     }
 }
