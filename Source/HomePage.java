@@ -286,6 +286,7 @@ public class HomePage extends JFrame implements ActionListener {
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
 
             printWriter.println("Passenger Details");
+            printWriter.println("-------------------");
             printWriter.println("Name: " + name);
             printWriter.println("Passport No.: " + passport);
             printWriter.println("Mobile No.: " + number);

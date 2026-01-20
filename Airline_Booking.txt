@@ -1,27 +1,55 @@
-=== NEW BOOKING ===
+Passenger Details
 Name: Simanto Saha
-Passport No.: 45678910
+Passport No.: 507735443
 Mobile No.: 01919444828
 Nationality: Bangladeshi
 Gender: Male
 Flying From: DHAKA
-Flying To: CHITTAGONG
-Departure Date: 25/02/26
+Flying To: SYLHET
+Departure Date: 5/12/26
 Number of Tickets: 2
 Total Price: 6000.0 BDT
 Trip Type: One Way
-===================
 
 Passenger Details
+-------------------
+Name: 
+Passport No.: 
+Mobile No.: 
+Nationality: 
+Gender: 
+Flying From:  
+Flying To:  
+Departure Date: 
+Number of Tickets: 1
+Total Price: 3000.0 BDT
+Trip Type: 
+
+Passenger Details
+-------------------
 Name: Md. Sajib
-Passport No.: 6534423345
-Mobile No.: 01919444828
-Nationality: Bd
+Passport No.: 123456789
+Mobile No.: 01444888999
+Nationality: Bangladeshi
 Gender: Male
-Flying From: JESSORE
-Flying To: RAJSHAHI
-Departure Date: 25/02/26
-Number of Tickets: 5
-Total Price: 15000.0 BDT
+Flying From: DHAKA
+Flying To: COX'S BAZAR
+Departure Date: 22/01/26
+Number of Tickets: 2
+Total Price: 6000.0 BDT
+Trip Type: One Way
+
+Passenger Details
+-------------------
+Name: Simanto Saha
+Passport No.: 888555444
+Mobile No.: 01919444828
+Nationality: Bangladeshi
+Gender: Male
+Flying From: DHAKA
+Flying To: COX'S BAZAR
+Departure Date: 30/02/26
+Number of Tickets: 3
+Total Price: 9000.0 BDT
 Trip Type: One Way
 
