@@ -3,6 +3,10 @@ package Source;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class HomePage extends JFrame implements ActionListener {
     private Container c;
@@ -275,5 +279,33 @@ public class HomePage extends JFrame implements ActionListener {
                 "================\n" +
                 "Thank you for choosing Biman Bangladesh Airlines!";
         textArea1.setText(details);
+
+        try {
+            FileWriter fileWriter = new FileWriter("Airline_Booking.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            PrintWriter printWriter = new PrintWriter(bufferedWriter);
+
+            printWriter.println("Passenger Details");
+            printWriter.println("Name: " + name);
+            printWriter.println("Passport No.: " + passport);
+            printWriter.println("Mobile No.: " + number);
+            printWriter.println("Nationality: " + nationality);
+            printWriter.println("Gender: " + gender);
+            printWriter.println("Flying From: " + flyingFrom);
+            printWriter.println("Flying To: " + flyingTo);
+            printWriter.println("Departure Date: " + departureDate);
+            printWriter.println("Number of Tickets: " + numTickets);
+            printWriter.println("Total Price: " + totalPrice + " BDT");
+            printWriter.println("Trip Type: " + tripType);
+            printWriter.println();
+            printWriter.close();
+            bufferedWriter.close();
+            fileWriter.close();
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Error saving data to file: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
